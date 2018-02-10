@@ -15,6 +15,12 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flight_id')->unsigned();
+            $table->foreign('flight_id')->references('id')->on('flights')->ondelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
+            $table->date('date_reserved');
+            $table->enum('status',['free', 'ocupated']);
             $table->timestamps();
         });
     }

@@ -15,6 +15,25 @@ class CreateFlightsTable extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('plane_id')->unsigned();
+            $table->foreign('plane_id')->references('id')->on('planes')->ondelete('cascade');
+            $table->integer('airport_origin_id')->unsigned();
+            $table->foreign('airport_origin_id')->references('id')->on('airports')->ondelete('cascade');
+            $table->integer('airport_destination_id')->unsigned();
+            $table->foreign('airport_destination_id')->references('id')->on('airports')->ondelete('cascade');
+            $table->date('date');
+            $table->time('time_duration');
+            $table->time('hour_output');
+            $table->time('arrival_time');
+            $table->double('old_price');
+            $table->double('price');
+            $table->integer('total_plots');
+            $table->boolean('is_promotion');
+            $table->string('image');
+            $table->string('qty_stops');
+            $table->text('description');
+            
+            
             $table->timestamps();
         });
     }
