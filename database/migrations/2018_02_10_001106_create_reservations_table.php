@@ -20,7 +20,7 @@ class CreateReservationsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
             $table->date('date_reserved');
-            $table->enum('status',['free', 'ocupated']);
+            $table->enum('status',['reserved', 'canceled', 'paid', 'concluded']);
             $table->timestamps();
         });
     }

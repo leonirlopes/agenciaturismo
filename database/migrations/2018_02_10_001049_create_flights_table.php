@@ -25,15 +25,13 @@ class CreateFlightsTable extends Migration
             $table->time('time_duration');
             $table->time('hour_output');
             $table->time('arrival_time');
-            $table->double('old_price');
-            $table->double('price');
+            $table->double('old_price' ,10, 2);
+            $table->double('price', 10, 2);
             $table->integer('total_plots');
-            $table->boolean('is_promotion');
-            $table->string('image');
-            $table->string('qty_stops');
-            $table->text('description');
-            
-            
+            $table->boolean('is_promotion')->default(false);
+            $table->string('image', 200)->nullable();
+            $table->string('qty_stops')->default(0);
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

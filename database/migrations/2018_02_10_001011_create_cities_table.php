@@ -17,7 +17,8 @@ class CreateCitiesTable extends Migration
             $table->increments('id');
             $table->integer('state_id')->unsigned();
             $table->foreign('state_id')->references('id')->on('states')->ondelete('cascade');
-            $table->string('name');
+            $table->string('name', 100);
+            $table->string('zip_code', 11)->nullable();
             $table->timestamps();
         });
     }

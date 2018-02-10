@@ -17,13 +17,13 @@ class CreateAirportsTable extends Migration
             $table->increments('id');
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities')->ondelete('cascade');
-            $table->string('name');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('address');
-            $table->integer('number');
-            $table->string('zip_code');
-            $table->string('complement');
+            $table->string('name', 100);
+            $table->string('latitude', 15)->nullable();
+            $table->string('longitude', 15)->nullable();
+            $table->string('address', 100)->nullable();
+            $table->integer('number')->nullable();
+            $table->string('zip_code', 11)->unique()->nullable();
+            $table->string('complement', 190)->nullable();
             $table->timestamps();
         });
     }
