@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ 'title', 'Laravel 5.5'}}</title>
+		<title>{{ $title or 'Demo Agência Turismo'}}</title>
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 		<!--Fonts-->
-		<link rel="stylesheet" href="{{url('assets/css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{url('assets/panel/css/font-awesome.min.css')}}">
 
 		<!--CSS Person-->
-		<link rel="stylesheet" href="{{url('assets/css/especializati.css')}}">
-		<link rel="stylesheet" href="{{url('assets/css/especializati-reset.css')}}">
+		<link rel="stylesheet" href="{{url('assets/panel/css/especializati.css')}}">
+		<link rel="stylesheet" href="{{url('assets/panel/css/especializati-reset.css')}}">
 
 		<!--Favicon-->
-		<link rel="icon" type="image/png" href="{{url('assets/imgs/favicon.png')}}">
+		<link rel="icon" type="image/png" href="{{url('assets/panel/imgs/favicon.png')}}">
 	</head>
 <body>
 
 <section class="menu">
 	
 	<div class="logo">
-		<img src="{{url('assets/imgs/icone-especializati.png')}}" alt="EspecializaTi" class="logo-painel">
+		<img src="{{url('assets/panel/imgs/icone-especializati.png')}}" alt="EspecializaTi" class="logo-painel">
 	</div>
 
 	<div class="list-menu">
@@ -56,7 +56,7 @@
 		
 		<div class="dropdown user-dash">
 		  <div class="dropdown-toggle" id="dropDownCuston" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    <img src="{{asset('assets/imgs/user-carlos-ferreira.png')}}" alt="Carlos Ferreira" class="user-dashboard img-circle">
+		    <img src="{{asset('assets/panel/imgs/user-carlos-ferreira.png')}}" alt="Carlos Ferreira" class="user-dashboard img-circle">
 		    <p class="user-name">Nome User</p>
 		    <span class="caret"></span>
 		  </div>
@@ -68,10 +68,6 @@
 	</div><!--Top Dashboard-->
 
 	<div class="content-ds">
-		
-		<div class="bred">
-			<a href="" class="bred">Home  ></a> <a href="" class="bred">Dashboard</a>
-		</div>
 
         @yield('content')
 		
@@ -83,7 +79,7 @@
 	
 
 	<!--jQuery-->
-	<script src="{{url('assets/js/jquery-3.1.1.min.js')}}"></script>
+	<script src="{{url('assets/panel/js/jquery-3.1.1.min.js')}}"></script>
 
 	<!-- jS Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

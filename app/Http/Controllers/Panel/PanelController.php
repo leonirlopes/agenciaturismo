@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 class PanelController extends Controller
 {
     public function index (){
-        return view('panel.home.index');
+
+        $title = 'Agência de Turismo - Painel';
+
+        return view('panel.home.index', compact('title'));
     }
 }
