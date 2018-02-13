@@ -9,7 +9,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $title = 'Agência de Turismo - Portal';
+        $title = 'HomePage - Agência de Turismo';
         
         return view('site.home.index', compact('title'));
     }

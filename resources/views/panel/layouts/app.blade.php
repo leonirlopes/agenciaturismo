@@ -62,7 +62,14 @@
 		  </div>
 		  <ul class="dropdown-menu dp-menu" aria-labelledby="dropDownCuston">
 		    <li><a href="#">Perfil</a></li>
-		    <li><a href="#">Logout</a></li>
+			<li><a href="{{ route('logout') }}"
+				onclick="event.preventDefault();
+					document.getElementById('logout-form').submit();"
+				>Logout</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					{{ csrf_field() }}
+				</form>
+			</li>
 		  </ul>
 		</div>
 	</div><!--Top Dashboard-->
