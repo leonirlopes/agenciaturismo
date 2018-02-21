@@ -1,7 +1,14 @@
 <?php
 
 //Rotas do Painel
-$this->get('panel', 'Panel\PanelController@index')->name('panel');
+$this->group (['prefix'=> 'panel', 'namespace'=> 'Panel'], function(){
+    
+    $this->resource('brands', 'BrandController');
+    
+    $this->get('/', 'PanelController@index')->name('panel');
+});
+
+
 
 //Rotas do Site
 Route::get('promocoes', 'Site\SiteController@promotions')->name('promotions');
