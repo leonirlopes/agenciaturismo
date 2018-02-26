@@ -13,11 +13,15 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Brand $brand)
     {
         $title = 'Marcas de Aviões';
+        //$brands = Brand::all(); * retorno opcional sem injeção de dependencias no store
+        $brands = $brand->all();
         
-        return view('panel.brands.index', compact('title'));
+        return view('panel.brands.index', compact('title', 'brands'));
+
+        
     }
 
     /**
@@ -38,10 +42,16 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Brand $brand)
     {
         $data = $request->all(); 
-        dd(Brand::create($data));
+        //$insert = Brand::create($data); * não precisa fazer a injeção no método.
+        $insert = $brand->create($data);
+
+        if($insert)
+            return redirect()->route('brands.index');
+        else
+            return redirect()->back()->with('error', 'Falha ao cadastrar!');
     }
 
     /**
