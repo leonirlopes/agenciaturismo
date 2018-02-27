@@ -51,7 +51,7 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BrandStoreUpdateFormRequest $request)
     {
         $data = $request->all(); 
         //$insert = Brand::create($data); * não precisa fazer a injeção no método.

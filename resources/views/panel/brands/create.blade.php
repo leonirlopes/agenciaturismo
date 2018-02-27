@@ -13,6 +13,16 @@
 
 <div class="content-din">
 
+@if (isset($errors) && $errors->any())
+    <ul>
+        <div class="alert alert-warning">
+            @foreach ($errors->all() as $error )
+            <li>{{$error}}</li>
+            @endforeach
+        </div>
+    </ul>
+@endif
+
 <form class="form form-search form-ds" action="{{route('brands.store')}}" method="POST">
     {!! csrf_field() !!}
     <div class="form-group">
