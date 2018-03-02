@@ -133,4 +133,14 @@ class BrandController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        $brands = $this->brand->search($request);
+
+        $title = "Brands, filtros para: {$request->key_search}";
+
+        return view('panel.brands.index', compact('title', 'brands'));
+    }
+
 }
