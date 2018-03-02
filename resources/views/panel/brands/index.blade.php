@@ -52,7 +52,7 @@
                 <td>{{ $brand->name }}</td>
                 <td>
                     <a href="{{route('brands.edit', $brand->id)}}" class="edit">Editar</a>
-                    <a href="" class="delete">Apagar</a>
+                <a href="{{route('brands.show', $brand->id)}}" class="delete">View</a>
                 </td>
             </tr>
         @empty
