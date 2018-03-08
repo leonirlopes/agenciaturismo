@@ -13,15 +13,7 @@
 
 <div class="content-din">
 
-@if (isset($errors) && $errors->any())
-    <ul>
-        <div class="alert alert-warning">
-            @foreach ($errors->all() as $error )
-            <li>{{$error}}</li>
-            @endforeach
-        </div>
-    </ul>
-@endif
+@include('panel.includes.errors')
 
 @if( isset($brand) )
 {!! Form::model( $brand, ['route' => ['brands.update', $brand->id], 'class' => 'form form-search form-ds', 'method' => 'PUT']) !!}

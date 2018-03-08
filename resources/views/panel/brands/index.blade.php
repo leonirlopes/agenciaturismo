@@ -22,16 +22,7 @@
         {!! Form::close()!!}
     </div>
     <div class="messages">
-        @if (session('success'))
-            <div class="alert alert-success">
-            {{session('success')}}
-            </div>
-        @endif
-        @if (session('error'))
-            <div class="alert alert-danger">
-            {{session('error')}}
-            </div>
-        @endif
+        @include('panel.includes.alerts')
     </div>
 
     <div class="class-btn-insert">
@@ -61,8 +52,11 @@
             </tr>
         @endforelse
     </table>
-
-    {!! $brands->links() !!}
+    @if(isset($dataForm))
+        {!! $brands->appends($dataForm)->links() !!}
+    @else
+        {!! $brands->links() !!}
+    @endif
 
 </div><!--Content Dinâmico-->
 
