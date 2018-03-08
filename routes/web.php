@@ -3,8 +3,9 @@
 //Rotas do Painel
 $this->group (['prefix'=> 'panel', 'namespace'=> 'Panel'], function(){
     
-    $this->any('brands/search', 'BrandController@search')->name('brands.search');
+    $this->resource('planes', 'PlaneController');
     
+    $this->any('brands/search', 'BrandController@search')->name('brands.search');
     $this->resource('brands', 'BrandController');
     
     $this->get('/', 'PanelController@index')->name('panel');
