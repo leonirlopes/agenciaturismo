@@ -88,9 +88,21 @@ class PlaneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $plane = $this->plane->find($id);
+
+        $brands = Brand::pluck('name', 'id');
+
+        $classes = $this->plane->classes();
+
+        if(!$plane)
+            return  redirect()->back();
+
+        $title = 'Editar Avião: { $plane->id }';
+
+        return view('panel.planes.edit', compact('plane', 'title', 'brands', 'classes'));
+        
     }
 
     /**
@@ -102,7 +114,22 @@ class PlaneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $plane = $this->plane->find($id);
+
+        if(!$plane)
+            return redirect()->back();
+
+        $update = $plane->update($request->all());
+
+        if($update)
+            return redirect()
+                ->route('planes.index')
+                ->with('success', 'Cadastro atualizado com sucesso!');
+        else
+            return redirect()
+                ->back()
+                ->with('error', 'Falha ao atualizar!')
+                ->withInput();
     }
 
     /**
