@@ -56,7 +56,19 @@ class PlaneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $insert = $this->plane->create($data);
+
+        if($insert)
+            return redirect()
+                ->route('planes.index')
+                ->with('success', 'Cadastro realizado com sucesso!');
+        else
+            return redirect()
+                ->back()
+                ->with('error', 'Falha ao cadastrar!')
+                ->withInput();
     }
 
     /**
